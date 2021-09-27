@@ -15,7 +15,7 @@ public class Main {
         byte byte_a = 50;
         short short_a = 500;
         int int_a = 5000;
-        long long_a = (long) (50000 + 10 * (byte_a + short_a + int_a));
+        long long_a = 50000L + 10L * (byte_a + short_a + int_a);
         System.out.println("Challenge answer is: " + long_a);
     }
 }
