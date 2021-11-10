@@ -13,22 +13,39 @@ public class Main {
 	      * After breaking out of the loop print the sum of the numbers that met the above conditions
 	     */
         int count = 0;
-        Vector<Integer> v = new Vector<>();
+        int sum = 0;
 
         for(int i = 1; i <= 1000; i++) {
             if(i % 3 == 0 && i % 5 == 0 && count < 5) {
                 System.out.println(i + " can be divided by 3 and 5");
-                v.add(i);
+                sum += i;
                 count++;
             } else if(count == 5) {
                 break;
             }
         }
 
-        int sum = 0;
-        for(int num : v) {
-            sum+= num;
-        }
         System.out.println("The sum of all numbers that are divisable by 3 and 5 is " + sum);
+        System.out.println(sumOdd(1, 11));
+    }
+
+    public static boolean isOdd(int num) {
+        if(num <= 0) {
+            return false;
+        }
+        return num % 2 != 0;
+    }
+
+    public static int sumOdd(int start, int end) {
+        if(end >= start && start > 0 && end > 0) {
+            int sum = 0;
+            for(int i = start; i <= end; i++) {
+                if(isOdd(i)) {
+                    sum += i;
+                }
+            }
+            return sum;
+        }
+        return -1;
     }
 }
