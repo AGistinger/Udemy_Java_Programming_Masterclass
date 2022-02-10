@@ -49,5 +49,11 @@ public class Main {
 		System.out.println(markVip.getCreditLimit());
 		System.out.println(adrianneVip.getCreditLimit());
 		System.out.println(gryphonVip.getCreditLimit());
+
+		Point first = new Point(6, 5);
+		Point second = new Point(3, 1);
+		System.out.println("distance(0,0) = " + first.distance());
+		System.out.println("distance(second) = " + first.distance(second));
+		System.out.println("distance(2.2) = " + first.distance(2, 2));
     }
 }
