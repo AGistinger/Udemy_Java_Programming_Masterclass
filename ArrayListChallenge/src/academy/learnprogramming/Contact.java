@@ -2,8 +2,8 @@ package academy.learnprogramming;
 
 public class Contact {
     // Variables
-    private String name;
-    private String phoneNumber;
+    private final String name;
+    private final String phoneNumber;
 
     // Constructor
     public Contact(String name, String phoneNumber) {
@@ -20,11 +20,8 @@ public class Contact {
         return phoneNumber;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public void setPhoneNumber(String phoneNumber) {
-        this.phoneNumber = phoneNumber;
+    // Instructor solution, used so the keyword new isn't needed
+    public static Contact createContact(String name, String phoneNumber) {
+        return new Contact(name, phoneNumber);
     }
 }
