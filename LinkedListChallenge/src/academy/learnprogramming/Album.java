@@ -3,8 +3,8 @@ package academy.learnprogramming;
 import java.util.ArrayList;
 
 public class Album {
-    private String title;
-    private ArrayList<Song> songs;
+    private final String title;
+    private final ArrayList<Song> songs;
 
     public Album(String title) {
         this.title = title;
@@ -16,9 +16,14 @@ public class Album {
     }
 
     public ArrayList<Song> getSongs() {
-        return this.getSongs();
+        return songs;
     }
 
+    /**
+     * Checks if a song exists on an album
+     * @param title - the song title being searched for
+     * @return boolean
+     */
     private boolean songExists(String title) {
         for(Song songs: this.songs) {
             if(title.equals(songs.getTitle())) {
@@ -28,6 +33,11 @@ public class Album {
         return false;
     }
 
+    /**
+     * Returns the song object for the title provided
+     * @param title - song title
+     * @return Song
+     */
     public Song findSong(String title) {
         for(Song song : this.songs) {
             if(song.getTitle().equals(title)) {
@@ -37,12 +47,16 @@ public class Album {
         return null;
     }
 
-    public boolean addSong(String title, double duration) {
+    /**
+     * Adds a new song to an album if not already existing
+     * @param title - song title
+     * @param duration - time length of song
+     */
+    public void addSong(String title, double duration) {
         if(songExists(title)) {
             System.out.println("Unable to add " + title + " song already exists in album");
-            return false;
         }
         this.songs.add(new Song(title, duration));
-        return true;
+        System.out.println(("Added song: " + title + ", " + duration + " min"));
     }
 }
