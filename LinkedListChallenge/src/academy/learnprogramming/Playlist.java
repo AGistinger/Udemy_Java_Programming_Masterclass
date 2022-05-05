@@ -222,6 +222,11 @@ public class Playlist {
         if(playlistHasData()) {
             System.out.println("Removing current song");
             currentSong.remove();
+            if(currentSong.hasNext()) {
+                playNextSong();
+            } else if(currentSong.hasPrevious()) {
+                playPreviousSong();
+            }
         } else {
             System.out.println("Unable to remove current song, no song playing");
         }

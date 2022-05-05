@@ -157,7 +157,7 @@ public class Main {
     private static boolean validateInt() {
         while(!scanner.hasNextInt()) {
             scanner.nextLine();
-            System.out.println("Duration entered is not a number, please try again:");
+            System.out.println("Opetion entered is not a number, please try again:");
         }
         return scanner.hasNextInt();
     }
