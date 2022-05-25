@@ -224,8 +224,10 @@ public class Playlist {
             currentSong.remove();
             if(currentSong.hasNext()) {
                 playNextSong();
+                goingForward = true;
             } else if(currentSong.hasPrevious()) {
                 playPreviousSong();
+                goingForward = false;
             }
         } else {
             System.out.println("Unable to remove current song, no song playing");
