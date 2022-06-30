@@ -76,11 +76,24 @@ public class Main {
         Penguin penguin = new Penguin("Emperor");
         penguin.fly();
 
-        String stringData = "Darwin Brisbane Perth Melbourne Canberra Adelaide Sydney Canberra";
+        // Test
+        SearchTree tree = new SearchTree(null);
+        tree.traverse(tree.getRoot());
 
-        String[] data = stringData.split(" ");
+        // Create a string data array to avoid typing loads of addItem instructions:
+        String stringData = "Darwin Brisbane Perth Melbourne Canberra Adelaide Sydney Canberra";
+        String numData = "5 7 3 9 8 2 1 0 4 6";
+
+        String[] data = numData.split(" ");
         for(String s : data) {
-            // Create new item with value set to the string s
+            tree.addItem(new Node(s));
         }
+
+        tree.traverse(tree.getRoot());
+
+        tree.removeItem(new Node("3"));
+        tree.traverse(tree.getRoot());
+        tree.removeItem(new Node("0"));
+        tree.traverse(tree.getRoot());
     }
 }
