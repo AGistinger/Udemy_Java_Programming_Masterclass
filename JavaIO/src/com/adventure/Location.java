@@ -1,6 +1,7 @@
 package com.adventure;
 
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.Map;
 
 public class Location {
@@ -15,9 +16,9 @@ public class Location {
 
         // Check if map is null
         if(exits != null) {
-            this.exits = new HashMap<String, Integer>(exits);
+            this.exits = new LinkedHashMap<>(exits);
         } else {
-            this.exits = new HashMap<>();
+            this.exits = new LinkedHashMap<>();
         }
         this.exits.put("Q", 0); // adds quit for each location
     }
@@ -34,7 +35,7 @@ public class Location {
     // Nothing outside of the class can change exits, outside exits can change
     // the copy of exits
     public Map<String, Integer> getExits() {
-        return new HashMap<String, Integer>(exits);
+        return new LinkedHashMap<>(exits);
     }
 
     protected void addExit(String direction, int location) {
