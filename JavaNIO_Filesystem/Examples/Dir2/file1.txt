@@ -1,0 +1,4 @@
+File within the subdirectory.
+In consequat ac lacus vitae ornare.
+Vestibulum cursus urnal tellus, vita placerat elit euismod in.
+Aliquam at lobortis lacus.
