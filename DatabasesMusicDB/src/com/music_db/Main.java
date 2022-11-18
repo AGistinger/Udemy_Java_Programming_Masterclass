@@ -5,6 +5,7 @@ import com.music_db.model.Datasource;
 import com.music_db.model.SongArtist;
 
 import java.util.List;
+import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
@@ -43,6 +44,29 @@ public class Main {
         }
 
         datasource.querySongsMetadata();
+        int count = datasource.getCount(Datasource.TABLE_SONGS);
+        System.out.println("Number of songs is: " + count);
+
+        datasource.createViewForSongArtists();
+
+//        Scanner scanner = new Scanner(System.in);
+//        System.out.println("Enter a song title: ");
+//        String title = scanner.nextLine();
+        String title = "Heartless";
+
+        songArtists = datasource.querySongInfoView(title);
+        if (songArtists.isEmpty()) {
+            System.out.println("Couldn't find the artist for the song");
+            return;
+        }
+
+        for(SongArtist artist : songArtists) {
+            System.out.println("FROM VIEW - Artist name = " + artist.getArtistName() +
+                    " Album name = " + artist.getAlbumName() +
+                    " Track number = " + artist.getTrack());
+        }
+
+        datasource.insertSong("Like A Rolling Stong", "Bob Dylan", "Bob Dylan's Greatest Hits", 5);
 
         datasource.close();
     }
